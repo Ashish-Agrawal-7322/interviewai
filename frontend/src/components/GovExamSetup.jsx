@@ -283,7 +283,7 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                     <button
                       onClick={handleNext}
                       disabled={!exam}
-                      className={`flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed ${theme.button}`}
+                      className={`flex items-center justify-center gap-2 sm:gap-3 px-4 sm:px-8 py-3 rounded-xl font-bold text-white transition-all text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed ${theme.button}`}
                     >
                       Continue to DAF <ChevronRight className="w-5 h-5" />
                     </button>
@@ -338,11 +338,11 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                     })}
                   </div>
 
-                  <div className="flex justify-between mt-8 pt-6 border-t border-white/10">
-                    <button onClick={handlePrev} className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between mt-8 pt-6 border-t border-white/10 gap-4">
+                    <button onClick={handlePrev} className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
                       <ChevronLeft className="w-5 h-5" /> Back
                     </button>
-                    <button onClick={handleNext} className={`flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition-all ${theme.button}`}>
+                    <button onClick={handleNext} className={`flex items-center justify-center gap-2 px-4 sm:px-8 py-3 rounded-xl font-bold text-white transition-all text-sm sm:text-base ${theme.button}`}>
                       Interview Settings <ChevronRight className="w-5 h-5" />
                     </button>
                   </div>
@@ -367,11 +367,11 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                   <div className="space-y-8">
                     <div>
                       <h3 className="text-lg font-bold text-slate-200 mb-4">Difficulty Level</h3>
-                      <div className="grid grid-cols-3 gap-4">
+                      <div className="grid grid-cols-3 gap-2 sm:gap-4">
                         {['Easy', 'Medium', 'Hard'].map(level => (
                           <button
                             key={level} onClick={() => setDifficulty(level)}
-                            className={`py-3 rounded-xl border-2 font-bold transition-colors ${difficulty === level ? `${theme.borderActive} bg-slate-800 ${theme.accent}` : 'border-slate-700 bg-slate-900/50 text-slate-400 hover:border-slate-500'}`}
+                            className={`py-2 sm:py-3 text-[11px] sm:text-base rounded-xl border-2 font-bold transition-colors ${difficulty === level ? `${theme.borderActive} bg-slate-800 ${theme.accent}` : 'border-slate-700 bg-slate-900/50 text-slate-400 hover:border-slate-500'}`}
                           >
                             {level}
                           </button>
@@ -402,14 +402,14 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                     </div>
                   </div>
 
-                  <div className="flex justify-between mt-12 pt-6 border-t border-white/10">
-                    <button onClick={handlePrev} className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+                  <div className="flex flex-col-reverse sm:flex-row justify-between mt-8 pt-6 border-t border-white/10 gap-4">
+                    <button onClick={handlePrev} className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
                       <ChevronLeft className="w-5 h-5" /> Back
                     </button>
                     <button 
                       onClick={handleSubmit} 
                       disabled={loading}
-                      className={`flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all disabled:opacity-50 ${theme.button} ${theme.glow}`}
+                      className={`flex items-center justify-center gap-2 px-6 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all disabled:opacity-50 text-sm sm:text-base ${theme.button} ${theme.glow}`}
                     >
                       {loading ? (
                         <div className="flex items-center gap-2">
