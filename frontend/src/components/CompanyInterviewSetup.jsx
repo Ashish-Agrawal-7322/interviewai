@@ -67,7 +67,7 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
 
   return (
     <div className={`min-h-[80vh] relative rounded-3xl overflow-hidden transition-colors duration-1000 bg-gradient-to-br ${THEME.bgGradient} border border-slate-800 shadow-2xl`}>
-      <div className="max-w-4xl mx-auto px-6 py-12 relative z-10">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 py-6 sm:py-12 relative z-10">
         
         {/* Progress Bar */}
         <div className="mb-12 max-w-2xl mx-auto">
@@ -82,11 +82,11 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
               const isActive = step >= i + 1;
               const isCurrent = step === i + 1;
               return (
-                <div key={i} className="relative z-10 flex flex-col items-center gap-2">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${isActive ? THEME.button + ' text-white shadow-lg' : 'bg-slate-800 text-slate-500'} ${isCurrent ? 'ring-4 ring-slate-900/50 scale-110' : ''}`}>
-                    {isActive && !isCurrent ? <CheckCircle2 className="w-6 h-6" /> : i + 1}
+                <div key={i} className="relative z-10 flex flex-col items-center gap-1 sm:gap-2 text-center max-w-[80px] sm:max-w-none">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 text-sm sm:text-base ${isActive ? THEME.button + ' text-white shadow-lg' : 'bg-slate-800 text-slate-500'} ${isCurrent ? 'ring-4 ring-slate-900/50 scale-110' : ''}`}>
+                    {isActive && !isCurrent ? <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6" /> : i + 1}
                   </div>
-                  <span className={`text-sm font-medium ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>{label}</span>
+                  <span className={`text-[10px] sm:text-sm font-medium leading-tight ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>{label}</span>
                 </div>
               );
             })}
@@ -102,7 +102,7 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
               <motion.div 
                 key="step1"
                 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}
-                className={`backdrop-blur-xl border rounded-3xl p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
+                className={`backdrop-blur-xl border rounded-3xl p-5 sm:p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
               >
                 <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                   <Building2 className={`w-8 h-8 ${THEME.accent}`} />
@@ -142,7 +142,7 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
                   <button
                     onClick={handleNext}
                     disabled={!company}
-                    className={`flex items-center gap-2 px-8 py-4 rounded-xl font-bold text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed ${THEME.button}`}
+                    className={`flex items-center justify-center gap-2 px-6 sm:px-8 py-3 sm:py-4 rounded-xl font-bold text-white transition-all text-sm sm:text-base w-full sm:w-auto disabled:opacity-50 disabled:cursor-not-allowed ${THEME.button}`}
                   >
                     Continue <ChevronRight className="w-5 h-5" />
                   </button>
@@ -155,7 +155,7 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
               <motion.div 
                 key="step2"
                 initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
-                className={`backdrop-blur-xl border rounded-3xl p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
+                className={`backdrop-blur-xl border rounded-3xl p-5 sm:p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
               >
                 <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                   <FileText className={`w-8 h-8 ${THEME.accent}`} />
@@ -169,18 +169,18 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
                   <label className="border-2 border-dashed border-indigo-500/50 hover:border-indigo-400 bg-indigo-950/20 rounded-2xl p-12 flex flex-col items-center justify-center cursor-pointer transition-all group">
                     <input type="file" className="hidden" accept=".pdf" onChange={handleFileChange} />
                     <UploadCloud className="w-12 h-12 text-indigo-400 mb-4 group-hover:-translate-y-2 transition-transform" />
-                    <span className="text-slate-200 font-bold text-lg">
+                    <span className="text-slate-200 font-bold text-center text-sm sm:text-lg break-all">
                       {resumeFile ? resumeFile.name : 'Click to upload your resume'}
                     </span>
-                    <span className="text-sm text-slate-500 mt-2">PDF format only. The AI will extract your skills automatically.</span>
+                    <span className="text-xs sm:text-sm text-slate-500 mt-2 text-center">PDF format only. The AI will extract your skills automatically.</span>
                   </label>
                 </div>
 
-                <div className="flex justify-between mt-10 pt-6 border-t border-white/10">
-                  <button onClick={handlePrev} className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+                <div className="flex flex-col-reverse sm:flex-row justify-between mt-8 pt-6 border-t border-white/10 gap-4">
+                  <button onClick={handlePrev} className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
                     <ChevronLeft className="w-5 h-5" /> Back
                   </button>
-                  <button onClick={handleNext} className={`flex items-center gap-2 px-8 py-3 rounded-xl font-bold text-white transition-all ${THEME.button}`}>
+                  <button onClick={handleNext} className={`flex items-center justify-center gap-2 px-4 sm:px-8 py-3 rounded-xl font-bold text-white transition-all text-sm sm:text-base ${THEME.button}`}>
                     Settings <ChevronRight className="w-5 h-5" />
                   </button>
                 </div>
@@ -192,7 +192,7 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
               <motion.div 
                 key="step3"
                 initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
-                className={`backdrop-blur-xl border rounded-3xl p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
+                className={`backdrop-blur-xl border rounded-3xl p-5 sm:p-8 ${THEME.cardBg} transition-all duration-500 max-w-3xl mx-auto`}
               >
                 <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                   <Settings className={`w-8 h-8 ${THEME.accent}`} />
@@ -246,14 +246,14 @@ const CompanyInterviewSetup = ({ passedCompany = '', onSubmit, loading, loadingT
 
                 </div>
 
-                <div className="flex justify-between mt-12 pt-6 border-t border-white/10">
-                  <button onClick={handlePrev} className="flex items-center gap-2 px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
+                <div className="flex flex-col-reverse sm:flex-row justify-between mt-8 sm:mt-12 pt-6 border-t border-white/10 gap-4">
+                  <button onClick={handlePrev} className="flex items-center justify-center gap-2 px-4 sm:px-6 py-3 rounded-xl font-bold text-slate-300 hover:bg-slate-800 transition-colors">
                     <ChevronLeft className="w-5 h-5" /> Back
                   </button>
                   <button 
                     onClick={handleSubmit} 
                     disabled={loading}
-                    className={`flex items-center gap-2 px-10 py-4 rounded-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all disabled:opacity-50 ${THEME.button} ${THEME.glow}`}
+                    className={`flex items-center justify-center gap-2 px-6 sm:px-10 py-3 sm:py-4 rounded-xl font-bold text-white shadow-xl hover:shadow-2xl transition-all text-sm sm:text-base disabled:opacity-50 ${THEME.button} ${THEME.glow}`}
                   >
                     {loading ? (
                       <div className="flex items-center gap-2">
