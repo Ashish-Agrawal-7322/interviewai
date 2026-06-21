@@ -142,7 +142,7 @@ const Dashboard = () => {
 
           {/* Global Leaderboard */}
           {leaderboard && leaderboard.length > 0 && (
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-6 shadow-lg">
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }} className="bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-lg">
               <div className="flex items-center gap-3 mb-6">
                 <div className="p-2 bg-yellow-500/20 rounded-lg">
                   <Trophy className="text-yellow-400" size={20} />
@@ -151,8 +151,8 @@ const Dashboard = () => {
               </div>
               <div className="flex flex-col gap-3">
                 {leaderboard.map((candidate, idx) => (
-                  <div key={idx} onClick={() => setSelectedCandidate(candidate)} className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-4 flex items-center justify-between group hover:bg-slate-800 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer">
-                    <div className="flex items-center gap-4">
+                  <div key={idx} onClick={() => setSelectedCandidate(candidate)} className="bg-slate-800/40 border border-slate-700/50 rounded-xl p-3 sm:p-4 flex items-center justify-between gap-2 group hover:bg-slate-800 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-indigo-500/10 cursor-pointer">
+                    <div className="flex items-center gap-2 sm:gap-4 min-w-0">
                       {/* Rank Badge */}
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold text-lg shadow-inner ${
                         idx === 0 ? 'bg-gradient-to-br from-yellow-400 to-yellow-600 text-slate-900 shadow-yellow-500/50' : 
@@ -164,16 +164,16 @@ const Dashboard = () => {
                       </div>
                       
                       {/* Avatar & Name */}
-                      <div className="flex items-center gap-3">
-                        <div className="w-10 h-10 rounded-full bg-slate-950/50 flex items-center justify-center text-indigo-400 font-bold border border-slate-700">
+                      <div className="flex items-center gap-2 sm:gap-3 min-w-0">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 shrink-0 rounded-full bg-slate-950/50 flex items-center justify-center text-indigo-400 font-bold border border-slate-700 text-sm sm:text-base">
                           {candidate.name.charAt(0).toUpperCase()}
                         </div>
-                        <h4 className="text-white font-bold text-lg tracking-wide">{candidate.name}</h4>
+                        <h4 className="text-white font-bold text-sm sm:text-lg tracking-wide truncate">{candidate.name}</h4>
                       </div>
                     </div>
 
                     {/* Score */}
-                    <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-2 sm:gap-4 shrink-0">
                       <div className="hidden sm:block h-2 w-32 bg-slate-950 rounded-full overflow-hidden border border-slate-800">
                         <div 
                           className={`h-full rounded-full ${
@@ -182,8 +182,8 @@ const Dashboard = () => {
                           style={{ width: `${candidate.score}%` }}
                         />
                       </div>
-                      <div className="px-4 py-1.5 rounded-lg bg-slate-950 border border-slate-700 min-w-[70px] text-center shadow-inner">
-                        <span className={`font-bold text-lg ${
+                      <div className="px-2 sm:px-4 py-1 sm:py-1.5 rounded-lg bg-slate-950 border border-slate-700 min-w-[50px] sm:min-w-[70px] text-center shadow-inner">
+                        <span className={`font-bold text-sm sm:text-lg ${
                             idx === 0 ? 'text-yellow-400' : idx === 1 ? 'text-slate-300' : idx === 2 ? 'text-amber-500' : 'text-indigo-400'
                           }`}>{candidate.score}%</span>
                       </div>
