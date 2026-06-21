@@ -39,8 +39,8 @@ const AppContent = () => {
                            (location.pathname.startsWith('/interview/') && location.pathname !== '/interview/setup') ||
                            location.pathname.startsWith('/coding-session/');
 
-  const hideRobotRoutes = ['/interview/', '/coding-session/'];
-  const shouldHideRobot = hideRobotRoutes.some(route => location.pathname.startsWith(route) && !location.pathname.includes('/setup') && !location.pathname.includes('/results'));
+  const path = location.pathname.toLowerCase();
+  const shouldHideRobot = (path.includes('/interview/') || path.includes('/coding-session/')) && !path.includes('/setup') && !path.includes('/results');
 
   return (
     <>

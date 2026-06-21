@@ -709,7 +709,7 @@ const InterviewSession = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
-                  className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-4 h-64"
+                  className="flex-grow grid grid-cols-1 lg:grid-cols-2 gap-4 h-[400px] sm:h-[500px] lg:h-64"
                 >
                   {/* Editor */}
                   <div className="flex flex-col rounded-xl overflow-hidden border border-slate-800 shadow-lg">
