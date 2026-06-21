@@ -19,7 +19,7 @@ const Home = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center min-h-[85vh] flex flex-col justify-center mt-10 md:-mt-20"
+          className="text-center min-h-[85vh] flex flex-col justify-center -mt-10 md:-mt-20"
         >
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
