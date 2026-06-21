@@ -569,9 +569,9 @@ const InterviewSession = () => {
       <div className="flex-1 max-w-7xl w-full mx-auto p-6 flex flex-col gap-6">
         
         {/* Video Panels & Proctoring Panel Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto md:h-[45vh]">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-4 md:gap-6 h-auto md:h-[45vh]">
           {/* AI Panel */}
-          <div className="lg:col-span-5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative flex flex-col items-center justify-center min-h-[300px]">
+          <div className="col-span-1 lg:col-span-5 bg-slate-900/80 backdrop-blur-md rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative flex flex-col items-center justify-center min-h-[180px] sm:min-h-[300px]">
             <div className={`absolute inset-0 border-4 rounded-2xl transition-all duration-500 ${getAiPulseColor().split(' ')[1]}`}></div>
             
             <div className="relative">
@@ -583,21 +583,21 @@ const InterviewSession = () => {
                 </>
               )}
               
-              <div className="w-32 h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center z-10 relative shadow-[0_0_30px_rgba(99,102,241,0.5)] border-4 border-slate-900">
-                <span className="text-4xl font-black text-white tracking-widest">AI</span>
+              <div className="w-20 h-20 sm:w-32 sm:h-32 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-full flex items-center justify-center z-10 relative shadow-[0_0_30px_rgba(99,102,241,0.5)] border-4 border-slate-900">
+                <span className="text-2xl sm:text-4xl font-black text-white tracking-widest">AI</span>
               </div>
             </div>
             
-            <div className="mt-8 text-center z-10">
-              <h3 className="text-xl font-bold text-slate-200">AI Panelist</h3>
-              <p className={`mt-1 font-medium ${aiState === 'speaking' ? 'text-emerald-400' : aiState === 'listening' ? 'text-indigo-400' : aiState === 'evaluating' ? 'text-amber-400' : 'text-slate-500'}`}>
+            <div className="mt-4 sm:mt-8 text-center z-10">
+              <h3 className="text-sm sm:text-xl font-bold text-slate-200">AI Panelist</h3>
+              <p className={`mt-0.5 sm:mt-1 text-xs sm:text-base font-medium ${aiState === 'speaking' ? 'text-emerald-400' : aiState === 'listening' ? 'text-indigo-400' : aiState === 'evaluating' ? 'text-amber-400' : 'text-slate-500'}`}>
                 {getAiText()}
               </p>
             </div>
           </div>
 
           {/* User Webcam Panel */}
-          <div className="lg:col-span-5 bg-black rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative flex flex-col items-center justify-center min-h-[300px]">
+          <div className="col-span-1 lg:col-span-5 bg-black rounded-2xl border border-slate-800 shadow-xl overflow-hidden relative flex flex-col items-center justify-center min-h-[180px] sm:min-h-[300px]">
             {isCameraOn ? (
               <video ref={videoRef} autoPlay playsInline muted className="w-full h-full object-cover transform scale-x-[-1]" />
             ) : (
@@ -608,28 +608,28 @@ const InterviewSession = () => {
             )}
             
             {/* Recording indicator */}
-            <div className={`absolute top-4 left-4 flex items-center gap-2 px-3 py-1.5 bg-black/60 backdrop-blur-md rounded-lg border ${isListening ? 'border-red-500/50' : 'border-slate-700'}`}>
-              <div className={`w-2.5 h-2.5 rounded-full ${isListening ? 'bg-red-500 animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-slate-600'}`}></div>
-              <span className={`text-xs font-bold tracking-wider uppercase ${isListening ? 'text-slate-200' : 'text-slate-500'}`}>
+            <div className={`absolute top-2 sm:top-4 left-2 sm:left-4 flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 bg-black/60 backdrop-blur-md rounded-lg border ${isListening ? 'border-red-500/50' : 'border-slate-700'}`}>
+              <div className={`w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full ${isListening ? 'bg-red-500 animate-pulse shadow-[0_0_10px_rgba(239,68,68,0.8)]' : 'bg-slate-600'}`}></div>
+              <span className={`text-[10px] sm:text-xs font-bold tracking-wider uppercase ${isListening ? 'text-slate-200' : 'text-slate-500'}`}>
                 {isListening ? 'Live Mic' : 'Mic Off'}
               </span>
             </div>
             
             {/* User Name Tag */}
-            <div className="absolute bottom-4 left-4 bg-black/60 backdrop-blur-md rounded-lg border border-slate-700 px-4 py-2">
-              <span className="text-sm font-medium text-slate-200">Candidate</span>
+            <div className="absolute bottom-2 sm:bottom-4 left-2 sm:left-4 bg-black/60 backdrop-blur-md rounded-lg border border-slate-700 px-2 sm:px-4 py-1 sm:py-2">
+              <span className="text-xs sm:text-sm font-medium text-slate-200">Candidate</span>
             </div>
 
             <button 
               onClick={toggleCamera}
-              className="absolute bottom-4 right-4 p-3 bg-slate-900/80 hover:bg-slate-800 text-white rounded-full transition-colors backdrop-blur-md border border-slate-700"
+              className="absolute bottom-2 sm:bottom-4 right-2 sm:right-4 p-2 sm:p-3 bg-slate-900/80 hover:bg-slate-800 text-white rounded-full transition-colors backdrop-blur-md border border-slate-700"
             >
-              {isCameraOn ? <Camera size={20} /> : <CameraOff size={20} />}
+              {isCameraOn ? <Camera size={16} className="sm:w-5 sm:h-5" /> : <CameraOff size={16} className="sm:w-5 sm:h-5" />}
             </button>
           </div>
 
           {/* Proctoring Panel */}
-          <div className="lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-4 flex flex-col min-h-[300px]">
+          <div className="col-span-2 lg:col-span-2 bg-slate-900 border border-slate-800 rounded-2xl shadow-xl p-4 flex flex-col min-h-[150px] sm:min-h-[300px]">
             <h3 className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
               <Shield className="text-red-500" size={14} /> Proctoring Panel
             </h3>
@@ -713,9 +713,9 @@ const InterviewSession = () => {
                 >
                   {/* Editor */}
                   <div className="flex flex-col rounded-xl overflow-hidden border border-slate-800 shadow-lg">
-                    <div className="bg-slate-900 px-4 py-2.5 flex justify-between items-center border-b border-slate-800">
+                    <div className="bg-slate-900 px-3 py-2 flex flex-wrap justify-between items-center border-b border-slate-800 gap-2">
                       <select
-                        className="bg-slate-950 border border-slate-700 text-slate-300 text-sm rounded-lg px-3 py-1.5 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
+                        className="bg-slate-950 border border-slate-700 text-slate-300 text-xs sm:text-sm rounded-lg px-2 sm:px-3 py-1.5 focus:ring-indigo-500 focus:border-indigo-500 outline-none"
                         value={codeLanguage}
                         onChange={(e) => setCodeLanguage(e.target.value)}
                       >
@@ -737,7 +737,7 @@ const InterviewSession = () => {
                       <button
                         onClick={runCode}
                         disabled={isExecuting}
-                        className="bg-emerald-600/20 text-emerald-400 border border-emerald-600/50 text-sm px-4 py-1.5 rounded-lg hover:bg-emerald-600/30 transition-colors flex items-center gap-2"
+                        className="bg-emerald-600/20 text-emerald-400 border border-emerald-600/50 text-xs sm:text-sm px-3 sm:px-4 py-1.5 rounded-lg hover:bg-emerald-600/30 transition-colors flex items-center gap-1 sm:gap-2 whitespace-nowrap"
                       >
                         {isExecuting ? 'Running...' : <><Play size={14} /> Run</>}
                       </button>
