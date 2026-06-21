@@ -54,7 +54,7 @@ const FloatingRobot = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 50, scale: 0.9 }}
             transition={{ duration: 0.3, type: "spring", stiffness: 200, damping: 20 }}
-            className="fixed bottom-36 right-10 z-[60] w-80 md:w-96 h-[500px] bg-slate-900/80 backdrop-blur-xl border border-indigo-500/30 rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.2)] flex flex-col overflow-hidden"
+            className="fixed bottom-24 sm:bottom-36 right-4 sm:right-10 z-[60] w-[calc(100vw-2rem)] sm:w-80 md:w-96 h-[400px] sm:h-[500px] bg-slate-900/80 backdrop-blur-xl border border-indigo-500/30 rounded-2xl shadow-[0_0_40px_rgba(99,102,241,0.2)] flex flex-col overflow-hidden"
           >
             {/* Chat Header */}
             <div className="p-4 bg-slate-800/80 border-b border-indigo-500/30 flex justify-between items-center">
@@ -125,7 +125,7 @@ const FloatingRobot = () => {
 
       {/* Floating Orb */}
       <motion.div
-        className="fixed bottom-10 right-10 z-50 pointer-events-none cursor-pointer"
+        className="fixed bottom-6 sm:bottom-10 right-4 sm:right-10 z-50 pointer-events-none cursor-pointer"
         animate={{ y: [0, -15, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
       >
