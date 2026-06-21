@@ -166,7 +166,7 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
         {theme.icon}
       </div>
       
-      <div className="max-w-6xl mx-auto px-6 py-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-6 sm:py-12 relative z-10">
         
         {/* Progress Bar */}
         <div className="mb-12 max-w-3xl mx-auto">
@@ -181,11 +181,11 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
               const isActive = step >= i + 1;
               const isCurrent = step === i + 1;
               return (
-                <div key={i} className="relative z-10 flex flex-col items-center gap-2">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 ${isActive ? theme.button + ' text-white shadow-lg' : 'bg-slate-800 text-slate-500'} ${isCurrent ? 'ring-4 ring-slate-900/50 scale-110' : ''}`}>
-                    {isActive && !isCurrent ? <CheckCircle2 className="w-6 h-6" /> : i + 1}
+                <div key={i} className="relative z-10 flex flex-col items-center gap-1 sm:gap-2 text-center max-w-[80px] sm:max-w-none">
+                  <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center font-bold transition-all duration-300 text-sm sm:text-base ${isActive ? theme.button + ' text-white shadow-lg' : 'bg-slate-800 text-slate-500'} ${isCurrent ? 'ring-4 ring-slate-900/50 scale-110' : ''}`}>
+                    {isActive && !isCurrent ? <CheckCircle2 className="w-4 h-4 sm:w-6 sm:h-6" /> : i + 1}
                   </div>
-                  <span className={`text-sm font-medium ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>{label}</span>
+                  <span className={`text-[10px] sm:text-sm font-medium leading-tight ${isActive ? 'text-slate-200' : 'text-slate-500'}`}>{label}</span>
                 </div>
               );
             })}
@@ -296,7 +296,7 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                 <motion.div 
                   key="step2"
                   initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
-                  className={`backdrop-blur-xl border rounded-3xl p-8 ${theme.cardBg} transition-all duration-500`}
+                  className={`backdrop-blur-xl border rounded-3xl p-5 sm:p-8 ${theme.cardBg} transition-all duration-500`}
                 >
                   <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                     <FileText className={`w-8 h-8 ${theme.accent}`} />
@@ -354,7 +354,7 @@ const GovExamSetup = ({ onSubmit, loading, loadingText }) => {
                 <motion.div 
                   key="step3"
                   initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -50 }}
-                  className={`backdrop-blur-xl border rounded-3xl p-8 ${theme.cardBg} transition-all duration-500`}
+                  className={`backdrop-blur-xl border rounded-3xl p-5 sm:p-8 ${theme.cardBg} transition-all duration-500`}
                 >
                   <div className="flex items-center gap-3 mb-8 pb-4 border-b border-white/10">
                     <Settings className={`w-8 h-8 ${theme.accent}`} />
