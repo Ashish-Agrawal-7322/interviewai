@@ -27,7 +27,7 @@ const Login = () => {
       };
 
       const { data } = await axios.post(
-        'http://127.0.0.1:5000/api/users/login',
+        `${import.meta.env.VITE_API_URL}/api/users/login`,
         { email, password },
         config
       );

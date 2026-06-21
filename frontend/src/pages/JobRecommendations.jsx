@@ -9,7 +9,7 @@ import axios from 'axios';
 const trackJobClick = async (job, userInfo) => {
   try {
     const config = { headers: { Authorization: `Bearer ${userInfo?.token}` } };
-    await axios.post('http://127.0.0.1:5000/api/jobs/click', {
+    await axios.post(`${import.meta.env.VITE_API_URL}/api/jobs/click`, {
       jobId: job.id || job.title,
       jobTitle: job.title,
       company: job.company
